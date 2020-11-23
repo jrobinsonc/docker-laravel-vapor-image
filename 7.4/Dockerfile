@@ -1,5 +1,8 @@
 FROM php:7.4-cli
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
@@ -15,6 +18,7 @@ RUN set -ex; \
       locales \
       mariadb-client \
       nodejs \
+      yarn \
       unzip \
       vim \
       wget \
@@ -35,5 +39,5 @@ RUN set -eux; \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer
-
+    
 RUN composer global require laravel/vapor-cli
