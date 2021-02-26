@@ -4,7 +4,8 @@
 
 **How to use with Bitbucket Pipelines**
 
-Sample file (`bitbucket-pipelines.yml`):
+1. Learn [how to Deploying From CI](https://docs.vapor.build/1.0/projects/deployments.html#deploying-from-ci).
+2. And can use the snippet below as starting point to create your `bitbucket-pipelines.yml`:
 
 ```
 image: jrobinsonc/laravel-vapor:7.4
